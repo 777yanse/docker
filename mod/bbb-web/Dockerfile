@@ -66,4 +66,6 @@ COPY turn-stun-servers.xml /usr/share/bbb-web/WEB-INF/classes/spring/turn-stun-s
 COPY logback.xml /usr/share/bbb-web/WEB-INF/classes/logback.xml
 COPY office-convert.sh /usr/share/bbb-libreoffice-conversion/convert.sh
 
+RUN sed -i "s|allowRequestsWithoutSession=.*|allowRequestsWithoutSession=true|g" /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+
 ENTRYPOINT ["/entrypoint.sh"]
